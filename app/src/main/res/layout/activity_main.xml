@@ -19,7 +19,8 @@
             android:fontFamily="@font/digital"
             android:textAlignment="textEnd"
             android:textAllCaps="false"
-            android:textSize="80sp"></TextView>
+            android:textColor="@color/white"
+            android:textSize="30sp"></TextView>
 
         <TextView
             android:id="@+id/answer"
@@ -29,7 +30,9 @@
             android:fontFamily="@font/digital"
             android:textAlignment="textEnd"
             android:textAllCaps="false"
-            android:textSize="85sp"></TextView>
+            android:textSize="80sp"
+            android:textColor="@color/white">
+            </TextView>
     </LinearLayout>
 
     <LinearLayout
@@ -129,6 +132,7 @@
 
             <Button
                 android:id="@+id/mod"
+                android:textColor="@color/yellow"
                 android:layout_width="70dp"
                 android:layout_height="65dp"
                 android:layout_marginHorizontal="5dp"
@@ -204,10 +208,12 @@
                 android:layout_marginVertical="2dp"
                 android:text="@string/clear"
                 android:textAllCaps="false"
+                android:textColor="@color/yellow"
                 android:textSize="20sp"></Button>
 
             <Button
                 android:id="@+id/exponent"
+                android:textColor="@color/yellow"
                 android:layout_width="70dp"
                 android:layout_height="65dp"
                 android:layout_marginHorizontal="5dp"
@@ -279,12 +285,14 @@
                 android:layout_height="65dp"
                 android:layout_marginHorizontal="5dp"
                 android:layout_marginVertical="2dp"
+                android:textColor="@color/yellow"
                 android:text="@string/backspace"
                 android:textAllCaps="false"
                 android:textSize="20sp"></Button>
 
             <Button
                 android:id="@+id/reciprocal"
+                android:textColor="@color/yellow"
                 android:layout_width="70dp"
                 android:layout_height="65dp"
                 android:layout_marginHorizontal="5dp"
@@ -297,6 +305,7 @@
 
             <Button
                 android:id="@+id/division"
+                android:textColor="@color/yellow"
                 android:layout_width="70dp"
                 android:layout_height="65dp"
                 android:layout_marginHorizontal="5dp"
@@ -307,6 +316,7 @@
 
             <Button
                 android:id="@+id/multiply"
+                android:textColor="@color/yellow"
                 android:layout_width="70dp"
                 android:layout_height="65dp"
                 android:layout_marginHorizontal="5dp"
@@ -317,6 +327,7 @@
 
             <Button
                 android:id="@+id/minus"
+                android:textColor="@color/yellow"
                 android:layout_width="70dp"
                 android:layout_height="65dp"
                 android:layout_marginHorizontal="5dp"
@@ -327,6 +338,7 @@
 
             <Button
                 android:id="@+id/add"
+                android:textColor="@color/yellow"
                 android:layout_width="70dp"
                 android:layout_height="65dp"
                 android:layout_marginHorizontal="5dp"
@@ -337,6 +349,7 @@
 
             <Button
                 android:id="@+id/equal"
+                android:textColor="@color/yellow"
                 android:layout_width="70dp"
                 android:layout_height="65dp"
                 android:layout_marginHorizontal="5dp"

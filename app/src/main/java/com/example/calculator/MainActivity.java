@@ -302,10 +302,8 @@ public class MainActivity extends AppCompatActivity {
         if (matcher.find()) {
             String numberStr = matcher.group(1);
             double number = Double.parseDouble(numberStr);
-            MainActivity i = new MainActivity();
             str = String.valueOf(number);
     }
         return str;
 }
 }
-
