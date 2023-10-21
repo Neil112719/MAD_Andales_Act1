@@ -6,7 +6,7 @@
     <string name="modulus">%</string>
     <string name="exponents">n^</string>
     <string name="log">log</string>
-    <string name="root">n√</string>
+    <string name="root">√</string>
     <string name="reciprocal">x^-1</string>
     <string name="zero">0</string>
     <string name="one">1</string>

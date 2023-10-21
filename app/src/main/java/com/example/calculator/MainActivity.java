@@ -8,8 +8,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
+    private static String rnum;
     Button b00,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,add,sub,multiply,divide,mod,exponents,log,roots,reciprocal,clear,backspace,open,close,equal,dot;
     TextView equation,answer;
+    Boolean root=false;
+    Double rn=0.0,num=0.0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -150,6 +153,9 @@ public class MainActivity extends AppCompatActivity {
         roots.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                root=true;
+                String val = equation.getText().toString();
+                rn = (Double.parseDouble(val));
                 equation.setText(equation.getText()+"√");
             }
         });
@@ -195,10 +201,18 @@ public class MainActivity extends AppCompatActivity {
         equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String val =equation.getText().toString();
-                String replacedstr = val.replace('÷','/');
-                double result = eval(replacedstr);
-                answer.setText(String.valueOf(result));
+                if(root){
+                    rnum = equation.getText().toString();
+                    String temporary = findnum(rnum);
+                    num=(Double.parseDouble(temporary));
+                    double result=Math.pow(num,1.0/rn);
+                    answer.setText(String.valueOf(result));
+                }else {
+                    String val =equation.getText().toString();
+                    String replacedstr = val.replace('÷','/');
+                    double result = eval(replacedstr);
+                    answer.setText(String.valueOf(result));
+                }
             }
         });
         reciprocal.setOnClickListener(new View.OnClickListener() {
@@ -247,6 +261,7 @@ public class MainActivity extends AppCompatActivity {
                 for (;;) {
                     if      (eat('*')) x *= parseFactor();
                     else if (eat('/')) x /= parseFactor();
+                    else if (eat('%')) x %=parseFactor();
                     else return x;
                 }
             }
@@ -267,8 +282,8 @@ public class MainActivity extends AppCompatActivity {
                     while (ch >= 'a' && ch <= 'z') nextChar();
                     String func = str.substring(startPos, this.pos);
                     x = parseFactor();
-
-                    if (func.equals("log")) x = Math.log10(x);
+                    if (func.equals("sqrt")) x = Math.sqrt(x);
+                    else if (func.equals("log")) x = Math.log10(x);
                     else throw new RuntimeException("Unknown function: " + func);
                 } else {
                     throw new RuntimeException("Unexpected: " + (char)ch);
@@ -279,5 +294,18 @@ public class MainActivity extends AppCompatActivity {
             }
         }.parse();
     }
+    public static String findnum(String str){
+        String eq = String.valueOf(rnum);
+        String pattern = ".*√\\s*([\\d.]+)";
+        Pattern regex = Pattern.compile(pattern);
+        Matcher matcher = regex.matcher(eq);
+        if (matcher.find()) {
+            String numberStr = matcher.group(1);
+            double number = Double.parseDouble(numberStr);
+            MainActivity i = new MainActivity();
+            str = String.valueOf(number);
+    }
+        return str;
+}
 }
 
